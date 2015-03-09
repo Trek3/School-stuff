@@ -12,8 +12,15 @@ void carica(int arr[]){
 }
 
 void somma(int a[], int b[], int c[]){
-     for(int i=0;i<DIM;i++)
-                  c[i]=a[i]+b[i];
+     for(int i=0;i<DIM;i++){
+                c[i]+=a[i]+b[i];
+                if(c[i]>9){
+                    c[i]-=10;
+                    c[i+1]++;
+                }
+                    
+    }
+                    
 
 }
 
@@ -25,7 +32,9 @@ void stampa(int a[], int b[], int c[]){
 int main(){
     int a[DIM];
     int b[DIM];
-    int c[DIM];
+    int c[DIM+1]={0};
+    
+    srand(time(NULL));
     
     carica(a);
     carica(b);
