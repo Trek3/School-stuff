@@ -45,7 +45,7 @@ int main(){
 
     int base=2, exp;
     cin>>exp;
-    int cDIM=exp*3+1;
+    int cDIM=exp/3+1;
     unsigned long long int c[cDIM];
     load_array(c, cDIM);
     pow(base, exp, c, cDIM);
