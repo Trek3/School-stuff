@@ -28,24 +28,26 @@ void print_array(unsigned long long int a[], int dim){
 void pow(int a, int b, unsigned long long int c[], int dim){
      int currExp=0;
      for(int i=0;i<dim;i++){
-             while(currExp<b){
-                              c[i]*=a;
-                              currExp++;
-             }
-     }
-     for(int i=0;i<dim;i++){
-             while(c[i]>=10){
-                         c[i]-=10;
-                         c[i+1]++;            
-             }
+          while(currExp<b){
+               c[i]*=a;
+               currExp++;
+          }
+          for(int i=0;i<dim;i++){
+               while(c[i]>=10){
+                    c[i]-=10;
+                    c[i+1]++;            
+               }
+          }
      }
 }
 
 int main(){
 
     int base=2, exp;
+    cout<<"2^";
     cin>>exp;
-    int cDIM=exp/3+1;
+    cout<<"= ";
+    int cDIM=(int)(exp/3.3+1);
     unsigned long long int c[cDIM];
     load_array(c, cDIM);
     pow(base, exp, c, cDIM);
