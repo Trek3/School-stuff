@@ -95,29 +95,63 @@ int calculate_disposition(int n, int k){
      
     return res;
      }
+     
+void get_input(int m){
+     
+     int A[DIM];
+     int disp, comb;
+     int n, k;
+    
+     carica(A, DIM);
+     
+     switch(m){
+               case 0:
+                break;
+               case 1:
+                cout<<"Visualizzazione array normale: "; 
+                print(A, DIM, 0);
+                break;
+               case 2:
+                cout<<"Visualizzazione array al contrario: "; 
+                print(A, DIM, 1);
+                break;
+               case 3:
+                mergesort(A, 0, DIM-1);
+                cout<<"Visualizzazione array in ordine crescente: "; 
+                print(A, DIM, 0);
+                break;
+               case 4:
+                mergesort(A, 0, DIM-1);
+                cout<<"Visualizzazione array in ordine decrescente: "; 
+                print(A, DIM, 1);
+                break;
+               case 5:
+                cout<<"inserisci due numeri n e k con n >= k: ";
+                cin>>n>>k;
+                disp=calculate_disposition(n, k);
+                cout<<"numero disposizioni: "<<disp<<endl;
+                break;
+               case 6:
+                cout<<"inserisci due numeri n e k con n >= k: ";
+                cin>>n>>k;
+                comb=calculate_combination(n, k); 
+                cout<<"numero combinazioni: "<<comb<<endl;     
+                break;
+               default:
+                cout<<"errore! inserire numero tra 1 e 6."<<endl;   
+     }     
+}
 
 int main(){
-    int A[DIM];
-    int disp, comb;
-    int n=4, k=3;
+    int input;
     
     srand(time(NULL));
-    
-    carica(A, DIM);
-    cout<<"array normale: "; 
-    print(A, DIM, 0);
-    cout<<"array al contrario: "; 
-    print(A, DIM, 1);
-    mergesort(A, 0, DIM-1);
-    cout<<"array in ordine crescente: "; 
-    print(A, DIM, 0);
-    cout<<"array in ordine decrescente: "; 
-    print(A, DIM, 1);
-    disp=calculate_disposition(n, k);
-    cout<<"numero disposizioni: "<<disp<<endl;
-    comb=calculate_combination(n, k); 
-    cout<<"numero combinazioni: "<<comb<<endl;
-    
+    do{
+    cout<<"Inserisci opzione tra quelle disponibili:\n1. Visualizzazione array normale\n2. Visualizzazione array al contrario\n3. Visualizzazione array in ordine crescente\n4. Visualizzazione array in ordine decrescente\n5. Disposizioni\n6. Combinazioni\n"<<endl;
+    cin>>input;
+    get_input(input);
+    cout<<"\n\n";
+    }while(input!=0);
     
     system("pause");
 
